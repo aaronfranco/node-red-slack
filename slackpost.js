@@ -103,7 +103,8 @@ module.exports = function(RED) {
                     "text": message.text,
                     "channelName": slackChannel.name,
                     "channel": message.channel,
-                    "fromUser": fromUser.name
+                    "fromUser": fromUser.name,
+                    "fromTeam": fromUser.team
                 };
 
                 node.send(msg);
