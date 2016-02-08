@@ -83,6 +83,7 @@ module.exports = function(RED) {
                 payload: message.text
             };
 
+
             var slackChannel = slack.getChannelGroupOrDMByID(message.channel);
             var fromUser = slack.getUserByID(message.user);
 
@@ -105,7 +106,9 @@ module.exports = function(RED) {
                     "channel": message.channel,
                     "fromUser": fromUser.name,
                     "fromUserTeamId": fromUser.team_id,
-                    "fromUserId": fromUser.id
+                    "fromUserId": fromUser.id,
+                    "botToken": message._client.Client.token,
+                    "botId": message._client.Client.self.User.id
                 };
 
                 node.send(msg);
