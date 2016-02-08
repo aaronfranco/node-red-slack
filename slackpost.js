@@ -107,8 +107,8 @@ module.exports = function(RED) {
                     "fromUser": fromUser.name,
                     "fromUserTeamId": fromUser.team_id,
                     "fromUserId": fromUser.id,
-                    "botToken": message._client.Client.token,
-                    "botId": message._client.Client.self.User.id
+                    "botToken": message._client.token,
+                    "botId": message._client.self.User.id
                 };
 
                 node.send(msg);
