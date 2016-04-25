@@ -179,13 +179,7 @@ module.exports = function(RED) {
             var slackChannel = "";
             var slackObj = msg.slackObj;
 
-            if(channel !== "") {
-                if (slackDebug) { node.log("Getting slackChannel (" + channel + ") from node/message."); }
-                slackChannel = slack.getChannelGroupOrDMByName(channel);
-            } else {
-                if (slackDebug) { node.log("Getting slackChannel (" + channel + ") from slackObj in message."); }
-                slackChannel = slack.getChannelGroupOrDMByID(slackObj.channel);
-            }
+            var slackChannel = slack.getChannelGroupOrDMByID(slackObj.channel);
 
             if (slackDebug) node.log(typeof slackChannel);
             if(typeof slackChannel === "undefined") {
